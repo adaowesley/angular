@@ -1,0 +1,47 @@
+<div class="container">
+  <h2>Save client</h2>
+
+  <form (ngSubmit) ="onSubmit()" #clientForm="ngForm" novalidate>
+    <div [ngClass]="getFormGroupClass(name.valid, name.pristine)">
+      <label for="name" class="form-control-label">Name</label>
+      <input id="name" type="input"
+             [ngClass]="getFormControlClass(name.valid, name.pristine)"
+             class="form-control form-control-danger"
+             placeholder="Inform your name"
+             required
+             #name="ngModel"
+             name="name"
+             [(ngModel)]="client.name">
+      <div class="form-control-feedback" [hidden]="name.valid || name.pristine">This field cannot be empty.</div>
+    </div>
+
+    <div [ngClass]="getFormGroupClass(email.valid, email.pristine)">
+      <label for="email">E-mail</label>
+      <input id="email" type="email"
+             [ngClass]="getFormControlClass(email.valid, email.pristine)"
+             class="form-control"
+             placeholder="Inform your e-mail"
+             required name="email"
+             #email="ngModel"
+             [(ngModel)]="client.email">
+      <div class="form-control-feedback" [hidden]="email.valid || email.pristine">This field cannot be empty.</div>
+
+    </div>
+
+    <div [ngClass]="getFormGroupClass(telephone.valid, telephone.pristine)">
+      <label for="telephone">Telephone</label>
+      <input id="telephone" type="text"
+             [ngClass]="getFormControlClass(telephone.valid, telephone.pristine)"
+             class="form-control"
+             placeholder="Inform your telephone"
+             required
+             #telephone="ngModel"
+             name="telephone"
+             [(ngModel)]="client.telephone">
+      <div class="form-control-feedback" [hidden]="telephone.valid || telephone.pristine">This field cannot be empty.</div>
+    </div>
+
+    <button id="save-client-button" class="btn btn-success" [disabled]="!clientForm.form.valid" type="submit">Save</button>
+    <a id="back" class="btn btn-danger" routerLink="/">Back</a>
+  </form>
+</div>

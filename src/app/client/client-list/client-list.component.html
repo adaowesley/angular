@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <a id="button-new" routerLink="/client/save" class="btn btn-success">New</a>
+
+      <table id="table-clients" class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Telephone</th>
+          <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let client of clients" [routerLink]="['/client/save', client.id]">
+          <td>{{client.name}}</td>
+          <td>{{client.email}}</td>
+          <td>{{client.telephone}}</td>
+          <td><button class="btn btn-danger">Delete</button> </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
